@@ -259,6 +259,75 @@
     margin-top: 6px;
   }
 
+  /* ===== PHOTO FIGURES ===== */
+  .photo-hero {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 1px solid var(--line);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .photo-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    margin-bottom: 34px;
+  }
+  .photo-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .photo-grid-2 figure { margin: 0; }
+  .photo-grid-2 img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+  }
+  .photo-grid-2 figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  .rom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .rom-grid figure { margin: 0; }
+  .rom-grid img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+  }
+  .rom-grid figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    text-align: center;
+  }
+  .concept-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--line);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .iter-cell.final .concept-photo { border-color: var(--accent); }
+
   /* ===== FOOTER ===== */
   footer {
     max-width: 900px;
@@ -280,6 +349,8 @@
     .hero h1 { font-size: 34px; }
     section.project { padding: 50px 20px; }
     .iter-grid { grid-template-columns: 1fr; }
+    .photo-grid-2 { grid-template-columns: 1fr; }
+    .rom-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -380,13 +451,112 @@
 
 <!-- ================= KNEE BRACE ================= -->
 <section class="project" id="knee-brace">
-  <div class="eyebrow">Course Project · University of Toronto</div>
-  <h2>NMES Knee Brace</h2>
-  <div class="meta">Human Factors, Biomechanics, Medical Devices · Winter 2025</div>
+  <div class="eyebrow">Team of 6 · Client: Elaya Inc. · University of Toronto</div>
+  <h2>FlexWrap — NMES Leg Brace</h2>
+  <div class="meta">Medical Device Design & Testing · Winter 2025</div>
 
-  <div class="hero-render"><span>HERO IMAGE — pending content</span></div>
+  <img class="photo-hero" src="assets/flexwrap-prototype.jpg" alt="FlexWrap prototype worn on a patient's calf">
+  <div class="photo-caption">The finished FlexWrap prototype, worn during range-of-motion testing.</div>
 
-  <p class="status-note">Section in progress — send over the project report to fill in requirements, design, and validation content.</p>
+  <div class="block-label">Problem Context</div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;">Roughly 230,800 adults are admitted to Canadian ICUs each year, and up to 50% of them go on to develop ICU-Acquired Weakness (ICUAW) — muscle wasting brought on by prolonged immobility and critical illness. Neuromuscular Electrical Stimulation (NMES) is an established way to slow that loss, but the way it's currently delivered works against the people using it: electrodes held on with gel, adhesive, or tape that has to be reapplied, specific placement that eats up nursing time, and wiring that tangles with IV lines and gets in the way of fast access during an emergency. Elaya Inc. brought the team in to close that gap — a version of NMES built to sit on the patient passively and stay out of the way of everyone else working around the bed.</p>
+  <div class="photo-grid-2">
+    <figure>
+      <img src="assets/current-nmes.jpg" alt="Current NMES electrode setup with tangled wiring">
+      <figcaption>Current NMES delivery — three separate controllers, wired electrodes, and cabling across both legs.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/icu-environment.jpg" alt="Standard ICU bedside equipment layout">
+      <figcaption>A standard ICU bedside — haemofilter, ventilator, IV pumps, and monitors the design has to coexist with.</figcaption>
+    </figure>
+  </div>
+
+  <div class="block-label">Stakeholders & ICU Environment</div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;">The design had to satisfy more than the patient. Hospital administrators controlled whether it would ever get adopted, and their interest was cost-effectiveness. Health Canada's approval was non-negotiable for legal sale and use, and their regulations shaped constraints around materials and electrical safety from the start. Medical device manufacturers weighed in on manufacturing feasibility, and researchers running clinical trials needed a device that wouldn't compromise their data. The ICU itself came with fixed parameters to design around — a 20–24°C room, standard beds rated for 450 lbs, and a bacterial environment that ruled out materials that couldn't be kept clean between uses. Since a hospital site visit wasn't possible, the team leaned on CDC anthropometric data to size the brace: femoral girth alone needed to span from 36.7 cm on a small patient to 82.6 cm on a large one, which is most of why the final design needed adjustable sizing built in rather than a fixed shape.</p>
+  <div class="photo-grid-2">
+    <figure>
+      <img src="assets/leg-dims-min.jpg" alt="Minimum leg dimensions used for sizing">
+      <figcaption>Minimum sizing case — 36.7 cm femoral girth, 29.2 cm tibial girth.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/leg-dims-max.jpg" alt="Maximum leg dimensions used for sizing">
+      <figcaption>Maximum sizing case — 82.6 cm femoral girth, 47.2 cm tibial girth.</figcaption>
+    </figure>
+  </div>
+
+  <div class="block-label">Design Requirements</div>
+  <table class="spec-table">
+    <tr><th>Requirement</th><th>Target</th></tr>
+    <tr><td>Knee flexion (brace vs. no brace)</td><td>&lt; 12° difference</td></tr>
+    <tr><td>Skin contact pressure</td><td>≤ 2.8 kPa (2800 Pa)</td></tr>
+    <tr><td>Application / removal time</td><td>&lt; 60 s per limb</td></tr>
+    <tr><td>Manufacturing cost</td><td>&lt; $90 per unit</td></tr>
+    <tr><td>Bed compatibility</td><td>Hill-Rom, Stryker, Medline, etc.</td></tr>
+  </table>
+
+  <div class="block-label">Design & Iteration</div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;">The problem started with two basic questions: how do you keep a device secured to a patient's leg, and how do you deliver stimulation without wiring that gets in the way of emergency access. Early sketches worked through velcro wraps, hardshell clasps, and inflatable cuffs to test those two problems directly before anything else got layered on.</p>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;">From there the team deliberately widened the search. Structured brainstorming sessions, morph charts, and SCAMPER pushed past the first obvious answers, and an AI-assisted pass helped round things out — together producing 84 concepts spanning slide-on sleeves, wraps, hardshells, modular pieces, and hinged braces. Multivoting cut that list down to the strongest candidates, and a graphical decision matrix — scoring designs on fitment and usability — carried three finalists forward. A Pugh chart settled it: PneuWrap's inflatable lining gave precise pressure control but added complexity and cost; CrossWrap's hydrogel fill distributed pressure well but its rigid buckle system was harder to clean and slower to apply. FlexWrap won out for combining a large e-textile contact surface, a thin low-profile shape, and a velcro closure that was both quick to use and easy to sanitize.</p>
+  <div class="iter-grid">
+    <div class="iter-cell">
+      <img class="concept-photo" src="assets/pneuwrap-concept.jpg" alt="PneuWrap concept sketch">
+      <div class="iter-num">01</div>
+      <div class="iter-note">PneuWrap — velcro-secured cotton-linen shell with an inflatable lining for adjustable pressure</div>
+    </div>
+    <div class="iter-cell final">
+      <img class="concept-photo" src="assets/flexwrap-concept.jpg" alt="FlexWrap concept sketch">
+      <div class="iter-num">02</div>
+      <div class="iter-note">FlexWrap (selected) — cotton-elastane wrap with layered velcro strips for even pressure and fast sizing</div>
+    </div>
+    <div class="iter-cell">
+      <img class="concept-photo" src="assets/crosswrap-concept.jpg" alt="CrossWrap concept sketch">
+      <div class="iter-num">03</div>
+      <div class="iter-note">CrossWrap — linen-cotton wrap with hydrogel fill and a 4-way POM buckle system</div>
+    </div>
+  </div>
+
+  <div class="block-label">Testing & Validation</div>
+  <div class="lab-block">
+    <div class="lab-row"><div class="lab-label">Objective</div><div class="lab-text">Confirm the design meets its fitment target on a real prototype rather than just modeling it.</div></div>
+    <div class="lab-row"><div class="lab-label">Method</div><div class="lab-text">Range-of-motion test measuring knee flexion angle from side-profile photos, with and without the brace; pressure test using a water-displacement rig positioned along the iliotibial band.</div></div>
+    <div class="lab-row"><div class="lab-label">Result</div><div class="lab-text">Range of motion held up well — a 6.1° difference on one subject and 13.7° on the other, whose larger leg made for a tighter fit. Pressure came in even cleaner: three trials measured 1622–1626 Pa against a 2800 Pa ceiling.</div></div>
+  </div>
+  <div class="rom-grid">
+    <figure>
+      <img src="assets/rom-subject1-without.jpg" alt="Subject 1 knee flexion without brace, 44.1 degrees">
+      <figcaption>Subj. 1 — no brace<br>44.1°</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/rom-subject1-with.jpg" alt="Subject 1 knee flexion with brace, 50.2 degrees">
+      <figcaption>Subj. 1 — with brace<br>50.2° (Δ 6.1°)</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/rom-subject2-without.jpg" alt="Subject 2 knee flexion without brace, 43.0 degrees">
+      <figcaption>Subj. 2 — no brace<br>43.0°</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/rom-subject2-with.jpg" alt="Subject 2 knee flexion with brace, 56.7 degrees">
+      <figcaption>Subj. 2 — with brace<br>56.7° (Δ 13.7°)</figcaption>
+    </figure>
+  </div>
+  <div class="photo-grid-2" style="margin-top:16px;">
+    <figure>
+      <img src="assets/pressure-test-method.jpg" alt="Pressure test setup using a water-filled bag along the iliotibial band">
+      <figcaption>Pressure test rig — a water-filled bag measures displacement to back-calculate contact pressure.</figcaption>
+    </figure>
+    <figure style="display:flex; align-items:center; justify-content:center; border:1px solid var(--line); background:var(--panel);">
+      <figcaption style="margin:0; padding:16px; font-size:13px; color:var(--ink); text-align:left;">
+        <strong style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:8px;">Pressure Trials</strong>
+        Trial 1: 1625.8 Pa<br>
+        Trial 2: 1622.5 Pa<br>
+        Trial 3: 1622.4 Pa<br>
+        <span style="color:var(--ink-soft);">Target ceiling: 2800 Pa</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="block-label">Integration & Outcome</div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:6px;">FlexWrap held up as a working prototype, not just a design on paper — secure, quick to apply, and effective at maintaining fitment without meaningfully restricting motion. What's left before it's clinic-ready is the electronics: integrating the actual e-textile and stimulation hardware into the wrap. As it stands, FlexWrap is the mechanical foundation that makes that next step possible — a way to get NMES onto ICU patients passively, without the wiring and reapplication that make the current approach so impractical.</p>
 </section>
 
 <footer>
